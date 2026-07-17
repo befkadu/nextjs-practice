@@ -1,39 +1,32 @@
-"use client";
-import { useState } from "react";
+import Link from "next/link";
 
 export default function Home() {
-  const [clicks, setClicks] = useState(0);
-
   return (
-    <div
-      style={{
-        padding: "60px",
-        fontFamily: "sans-serif",
-        textAlign: "center",
-        backgroundColor: "#f0f4f8",
-        minHeight: "100vh",
-      }}
-    >
-      <h1 style={{ color: "#1a365d" }}>🚀 My Next.js Playground</h1>
-      <p style={{ margin: "20px 0", fontSize: "1.2rem", color: "#4a5568" }}>
-        You have clicked the button <strong>{clicks}</strong> times!
+    <div className="flex flex-col items-center justify-center min-h-screen bg-slate-100 font-sans p-6 text-center">
+      <h1 className="text-4xl font-extrabold text-slate-900 mb-2">
+        My Next.js Practice Dashboard
+      </h1>
+      <p className="text-slate-600 mb-8 max-w-sm">
+        Welcome! This dashboard is where I gather my customized components and
+        practice layouts.
       </p>
 
-      <button
-        onClick={() => setClicks(clicks + 1)}
-        style={{
-          padding: "12px 24px",
-          fontSize: "1rem",
-          backgroundColor: "#3182ce",
-          color: "white",
-          border: "none",
-          borderRadius: "6px",
-          cursor: "pointer",
-          fontWeight: "bold",
-        }}
+      {/* Navigation Card Link */}
+      <Link
+        href="/steps"
+        className="block bg-white p-6 rounded-xl shadow-md border border-slate-200 hover:border-purple-500 hover:shadow-lg transition duration-200 text-left w-full max-w-xs group cursor-pointer"
       >
-        Click Me!
-      </button>
+        <h3 className="text-lg font-bold text-slate-800 group-hover:text-purple-600 flex items-center justify-between">
+          🏃‍♂️ Steps Tracker Component
+          <span className="text-slate-400 group-hover:translate-x-1 transition-transform duration-200">
+            →
+          </span>
+        </h3>
+        <p className="text-sm text-slate-500 mt-2">
+          An interactive sequence tracker using state checks and Tailwind
+          transitions.
+        </p>
+      </Link>
     </div>
   );
 }
